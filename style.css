@@ -121,12 +121,12 @@ section {
     display: block;
 }
 
-.goal-list, .ways-list, .timeline-table {
+.goal-list, .ways-list {
     list-style-type: none;
     padding: 0;
 }
 
-.goal-list li, .ways-list li, .timeline-table tr {
+.goal-list li, .ways-list li {
     background: rgba(34, 34, 34, 0.7);
     margin: 10px 0;
     padding: 15px;
@@ -134,7 +134,7 @@ section {
     transition: all 0.3s ease;
 }
 
-.goal-list li:hover, .ways-list li:hover, .timeline-table tr:hover {
+.goal-list li:hover, .ways-list li:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(3, 233, 244, 0.3);
 }
@@ -243,8 +243,40 @@ section {
         padding: 10px;
     }
 
+    .timeline-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
     .timeline-table th, .timeline-table td {
         padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .timeline-table tr {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        background: rgba(34, 34, 34, 0.7);
+        border-radius: 5px;
+    }
+
+    .timeline-table td {
+        display: block;
+        text-align: center;
+    }
+
+    .timeline-table th {
+        display: none;
+    }
+
+    .timeline-table td:before {
+        content: attr(data-label);
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #03e9f4;
     }
 
     #progress-circle {
