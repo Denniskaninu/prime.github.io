@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dennis Kaninu's Goal Tracker</title>
+
+</head>
+<body>
+
+<div class="login-container active">
+    <form class="login-form" onsubmit="return login(event)">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<div class="content-container">
+    <header>
+        <h1>Dennis Kaninu's Goal Tracker</h1>
+    </header>
+
+    <nav>
+        <a href="#calendar" onclick="showSection('calendar')">Calendar</a>
+        <a href="#goals" onclick="showSection('goals')">Goals</a>
+        <a href="#countdown" onclick="showSection('countdown')">Countdown</a>
+        <a href="#motivation" onclick="showSection('motivation')">Motivation</a>
+        <a href="#ways" onclick="showSection('ways')">Ways to Make Money</a>
+        <a href="#timeline" onclick="showSection('timeline')">Daily Timeline</a>
+    </nav>
+
+    <section id="calendar" class="container active">
+        <h2>Calendar</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=en.kenyan%23holiday%40group.v.calendar.google.com&ctz=Africa%2FNairobi" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </section>
+
+    <section id="goals" class="container">
+        <h2>Goals</h2>
+        <ul class="goal-list">
+            <li>Financial Goal: 600 Million KSH</li>
+            <li>Buy a Range Rover</li>
+            <li>Buy a Beautiful Home</li>
+            <li>Have a Beautiful, Happy Family</li>
+        </ul>
+    </section>
+
+    <section id="countdown" class="container">
+        <h2>Countdown</h2>
+        <div id="countdown-timer"></div>
+    </section>
+
+    <section id="motivation" class="container">
+        <h2>Motivation</h2>
+        <div class="motivational-quote" id="motivational-quote">"Act as if what you do makes a difference. It does." - William James</div>
+        <button onclick="newQuote()">New Quote</button>
+    </section>
+
+    <section id="ways" class="container">
+        <h2>Ways to Make Money</h2>
+        <ul class="ways-list">
+            <li>Artificial Intelligence (AI) Development</li>
+            <li>Machine Learning (ML) Projects</li>
+            <li>Investments</li>
+            <li>Forex Trading</li>
+        </ul>
+    </section>
+
+    <section id="timeline" class="container">
+        <h2>Daily Timeline</h2>
+        <div id="progress-circle"><span>0%</span></div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar">0%</</div>
+        </div>
+        <table class="timeline-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Activity</th>
+                    <th>Notes/Description</th>
+                    <th>Completed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4:00 AM</td>
+                    <td>Wake Up</td>
+                    <td>Start your day with a positive mindset.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>4:00 - 4:15</td>
+                    <td>Hydrate & Freshen Up</td>
+                    <td>Drink a glass of water and freshen up.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>4:15 - 5:00</td>
+                    <td>Morning Meditation/Stretching</td>
+                    <td>Engage in meditation and light stretching exercises to awaken your body and mind.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>5:00 - 6:00</td>
+                    <td>Morning Exercise</td>
+                    <td>High-intensity workout or running session.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>6:00 - 6:30</td>
+                    <td>Breakfast</td>
+                    <td>Nutritious breakfast to fuel your day.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>6:30 - 7:30</td>
+                    <td>Forex Market Analysis & Trading</td>
+                    <td>Analyze the forex market and execute trades.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>7:30 - 8:30</td>
+                    <td>Computer Science Study</td>
+                    <td>Focus on studying your CS coursework or tutorials.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>8:30 - 9:00</td>
+                    <td>Short Break</td>
+                    <td>Relax and have a light snack.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>9:00 - 11:00</td>
+                    <td>Coding Practice</td>
+                    <td>Work on coding projects or practice problems.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>11:00 - 11:30</td>
+                    <td>Mid-Morning Bath</td>
+                    <td>Refresh yourself with a quick bath.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>11:30 - 12:30</td>
+                    <td>Reading Self-Help Book</td>
+                    <td>Read for personal growth and development.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>12:30 - 1:30</td>
+                    <td>Lunch</td>
+                    <td>Have a healthy and balanced lunch.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>1:30 - 2:00</td>
+                    <td>Power Nap</td>
+                    <td>A quick nap to recharge your energy.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>2:00 - 3:00</td>
+                    <td>Forex Market Check</td>
+                    <td>Review and adjust your forex trades as necessary.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>3:00 - 5:00</td>
+                    <td>Advanced CS Study or Project Work</td>
+                    <td>Dive into complex CS topics or work on major projects.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>5:00 - 5:30</td>
+                    <td>Evening Snack</td>
+                    <td>Have a light snack to keep you energized.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>5:30 - 6:30</td>
+                    <td>Second Exercise Session</td>
+                    <td>Engage in a lighter workout, like yoga or a brisk walk.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>6:30 - 7:00</td>
+                    <td>Evening Bath</td>
+                    <td>Relax with a calming bath.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>7:00 - 8:00</td>
+                    <td>Dinner</td>
+                    <td>Enjoy a nutritious dinner.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>8:00 - 9:00</td>
+                    <td>Relaxation Time</td>
+                    <td>Unwind with a hobby, listen to music, or spend time with friends/family.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>9:00 - 10:00</td>
+                    <td>Self-Improvement Activities</td>
+                    <td>Work on personal goals, learn a new skill, or review your day and plan for tomorrow.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>10:00 - 10:30</td>
+                    <td>Journaling & Planning</td>
+                    <td>Reflect on your day and plan your activities for the next day.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>10:30 - 11:00</td>
+                    <td>Wind Down</td>
+                    <td>Prepare for bed with calming activities like reading or listening to soft music.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+                <tr>
+                    <td>11:00 PM</td>
+                    <td>Sleep</td>
+                    <td>Get a restful night's sleep to be ready for the next day.</td>
+                    <td><input type="checkbox" onclick="markCompleted(this)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
